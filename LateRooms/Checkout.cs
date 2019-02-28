@@ -5,22 +5,23 @@ namespace LateRooms
 {
     public class Checkout
     {
-        private List<StockKeepItem> items;
+        private List<StockKeepItem> _items;
 
         public Checkout()
         {
-            items = new List<StockKeepItem>();
+            _items = new List<StockKeepItem>();
         }
 
         public void Scan(StockKeepItem stockKeepItem)
         {
-            items.Add(stockKeepItem);
+            _items.Add(stockKeepItem);
         }
 
         public int GetTotalPrice()
         {
+
             int total = 0;
-            foreach (var item in items)
+            foreach (var item in _items)
             {
                 total += item.Price;
             }

@@ -21,8 +21,27 @@ namespace LateRoomsTests
 
 
             Assert.AreEqual(80, totalPrice);
+        }
+
+        [TestMethod]
+        public void Adding3ItemsOfSameTypeAGivesDiscountPrice()
+        {
+            var itemA1 = new StockKeepItemA { Price = 50 };
+            var itemA2 = new StockKeepItemA { Price = 50 };
+            var itemA3 = new StockKeepItemA { Price = 50 };
+
+
+            var checkout = new Checkout();
+            checkout.Scan(itemA1);
+            checkout.Scan(itemA2);
+            checkout.Scan(itemA3);
+
+            var totalPrice = checkout.GetTotalPrice();
+
+            Assert.AreEqual(130, totalPrice);
 
 
         }
+
     }
 }
