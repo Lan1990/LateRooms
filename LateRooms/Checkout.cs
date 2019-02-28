@@ -1,38 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace LateRooms
 {
     public class Checkout
     {
-        private List<ICheckout> _checkouts;
+        private List<StockKeepItem> _items;
 
         public Checkout()
         {
-            _checkouts = new List<ICheckout>();
+            _items = new List<StockKeepItem>();
         }
 
         public void Scan(StockKeepItem stockKeepItem)
         {
-            if (stockKeepItem is StockKeepItemA )
-            {
-                var checkoutA = _checkouts.FirstOrDefault(x => x is CheckoutA);
-                if (checkoutA == null)
-                {
-                    _checkouts.Add(new CheckoutA());
-                }
-                checkoutA.Scan(stockKeepItem);
-            }
+            _items.Add(stockKeepItem);
         }
 
         public int GetTotalPrice()
         {
 
             int total = 0;
-            foreach (var checkout in _checkouts)
+            foreach (var item in _items)
             {
-                total += checkout.GetTotalPrice();
+                total += item.Price;
             }
             return total;
         }
