@@ -78,5 +78,37 @@ namespace LateRoomsTests
             Assert.AreEqual(180, totalPrice);
         }
 
+
+        [TestMethod]
+        public void AddingMixedItemsWithDiscounts()
+        {
+            var itemA1 = new StockKeepItemA();
+            var itemA2 = new StockKeepItemA();
+            var itemA3 = new StockKeepItemA();
+            var itemA4 = new StockKeepItemA();
+            var itemB1 = new StockKeepItemB();
+            var itemB2 = new StockKeepItemB();
+            var itemB3 = new StockKeepItemB();
+            var itemB4 = new StockKeepItemB();
+            var itemB5 = new StockKeepItemB();
+
+
+            var checkout = new Checkout();
+            checkout.Scan(itemA1);
+            checkout.Scan(itemA2);
+            checkout.Scan(itemA3);
+            checkout.Scan(itemA4);
+
+            checkout.Scan(itemB1);
+            checkout.Scan(itemB2);
+            checkout.Scan(itemB3);
+            checkout.Scan(itemB4);
+            checkout.Scan(itemB5);
+
+            var totalPrice = checkout.GetTotalPrice();
+
+            Assert.AreEqual(300, totalPrice);
+        }
+
     }
 }
