@@ -1,7 +1,7 @@
 ﻿namespace LateRooms
 {
-    public class StockKeepItem
+    public interface  StockKeepItem
     {
-        public int Price { get; set; }
+         int Price { get;}
     }
 }
