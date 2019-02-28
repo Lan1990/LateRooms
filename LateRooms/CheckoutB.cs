@@ -6,6 +6,8 @@ namespace LateRooms
 {
     public class CheckoutB : ICheckout<StockKeepItemB>
     {
+        private readonly int _numberOfItemForDiscount = 2;
+        private readonly int _discountPrice = 15;
         List<StockKeepItemB> items;
 
         public CheckoutB()
@@ -14,11 +16,12 @@ namespace LateRooms
         }
         public int GetTotalPrice()
         {
-            
+
             int total = 0;
             items.ForEach(x => total += x.Price);
 
-
+            var div = items.Count / _numberOfItemForDiscount * _discountPrice;
+            total -= div;
             return total;
         }
 
