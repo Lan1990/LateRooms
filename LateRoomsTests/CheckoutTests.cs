@@ -9,8 +9,8 @@ namespace LateRoomsTests
         [TestMethod]
         public void AddingItemsToCheckoutAddsUpTotalPrice()
         {
-            var itemA = new StockKeepItem {Price = 50 };
-            var itemB = new StockKeepItem {Price = 30 };
+            var itemA = new StockKeepItemA();
+            var itemB = new StockKeepItemA();
 
 
             var checkout = new Checkout();
@@ -20,15 +20,15 @@ namespace LateRoomsTests
             var totalPrice = checkout.GetTotalPrice();
 
 
-            Assert.AreEqual(80, totalPrice);
+            Assert.AreEqual(100, totalPrice);
         }
 
         [TestMethod]
         public void Adding3ItemsOfSameTypeAGivesDiscountPrice()
         {
-            var itemA1 = new StockKeepItemA { Price = 50 };
-            var itemA2 = new StockKeepItemA { Price = 50 };
-            var itemA3 = new StockKeepItemA { Price = 50 };
+            var itemA1 = new StockKeepItemA();
+            var itemA2 = new StockKeepItemA();
+            var itemA3 = new StockKeepItemA();
 
 
             var checkout = new Checkout();
