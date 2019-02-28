@@ -13,7 +13,7 @@ namespace LateRoomsTests
             var itemB = new StockKeepItemA();
 
 
-            var checkout = new Checkout();
+            var checkout = new FinalCheckout();
             checkout.Scan(itemA);
             checkout.Scan(itemB);
 
@@ -30,7 +30,7 @@ namespace LateRoomsTests
             var itemB = new StockKeepItemB();
 
 
-            var checkout = new Checkout();
+            var checkout = new FinalCheckout();
             checkout.Scan(itemA);
             checkout.Scan(itemB);
 
@@ -48,7 +48,7 @@ namespace LateRoomsTests
             var itemA3 = new StockKeepItemA();
 
 
-            var checkout = new Checkout();
+            var checkout = new FinalCheckout();
             checkout.Scan(itemA1);
             checkout.Scan(itemA2);
             checkout.Scan(itemA3);
@@ -67,7 +67,7 @@ namespace LateRoomsTests
             var itemA4 = new StockKeepItemA();
 
 
-            var checkout = new Checkout();
+            var checkout = new FinalCheckout();
             checkout.Scan(itemA1);
             checkout.Scan(itemA2);
             checkout.Scan(itemA3);
@@ -93,7 +93,7 @@ namespace LateRoomsTests
             var itemB5 = new StockKeepItemB();
 
 
-            var checkout = new Checkout();
+            var checkout = new FinalCheckout();
             checkout.Scan(itemA1);
             checkout.Scan(itemA2);
             checkout.Scan(itemA3);

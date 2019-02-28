@@ -1,34 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace LateRooms
 {
-    public class Checkout
+    public class Checkout<T> where T : IStockKeepItem
     {
-        CheckoutA checkoutA = new CheckoutA();
-        CheckoutB checkoutB = new CheckoutB();
+        List<T> items;
 
-  
 
-        public void Scan(IStockKeepItem stockKeepItem)
+        public Checkout()
         {
-
-            switch (stockKeepItem)
-            {
-                case StockKeepItemA a:
-                    checkoutA.Scan(a);
-                    break;
-                case StockKeepItemB b:
-                    checkoutB.Scan(b);
-                    break;
-                default:
-                    break;
-            }
+            items = new List<T>();
         }
-
         public int GetTotalPrice()
         {
-            return checkoutA.GetTotalPrice() + checkoutB.GetTotalPrice();
+            if (!items.Any())
+            {
+                return 0;
+            }
+            int total = 0;
+            items.ForEach(x => total += x.Price);
+
+            var div = items.Count / items[0].NumberOfItemForDiscount * items[0].DiscountPrice;
+            total -= div;
+            return total;
+        }
+
+        public void Scan(T item)
+        {
+            items.Add(item);
         }
     }
 }
