@@ -1,3 +1,4 @@
+using LateRooms;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LateRoomsTests
